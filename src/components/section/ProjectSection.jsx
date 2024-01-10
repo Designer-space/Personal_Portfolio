@@ -34,7 +34,7 @@ const projects = [
 
 const ProjectSection = () => {
 	return (
-		<section className='max-w-[1440px] mx-auto px-4 sm:px-8 relative my-[10vw]'>
+		<section className='max-w-[1440px] mx-auto px-4 sm:px-8 relative'>
 			<div className='text-white uppercase text-5xl font-semibold my-8'>
 				<p className=''>Recent Work</p>
 			</div>
