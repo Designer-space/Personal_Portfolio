@@ -61,7 +61,7 @@ const NavMenu = () => {
 								initial='initial'
 								className='text-white'>
 								<motion.li className='mt-8'>
-									<Link to={"./About"}>
+									<Link to={"/About"}>
 										<p>About</p>
 									</Link>
 								</motion.li>
