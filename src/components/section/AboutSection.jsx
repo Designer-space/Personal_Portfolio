@@ -22,11 +22,11 @@ const paragraph2 =
 const AboutSection = () => {
 	return (
 		<section className='max-w-[1240px] mx-auto px-4'>
-			<motion.div className='text-fluid-300 md:h-[90vh] flex flex-col justify-center gap-12'>
+			<div className='text-fluid-300 md:h-[90vh] flex flex-col justify-center gap-12'>
 				<RevealTextEffect text={paragraph1} />
 				<RevealTextEffect text={paragraph2} />
 				<Button text={"more about me"} />
-			</motion.div>
+			</div>
 
 			<motion.div
 				initial={{ opacity: 0, y: 100 }}
@@ -43,7 +43,7 @@ const AboutSection = () => {
 					{skills.map((skill, i) => (
 						<li
 							key={i}
-							className='relative pl-4 pt-8 before:absolute before:w-[6px] before:h-[2px] before:bg-white before:inline-block before:top-1/2 before:left-0 before:-translate-y-1/2 before:mt-4 '>
+							className='relative pl-4 pt-8 before:absolute before:w-[6px] before:h-[1px] before:bg-white before:inline-block before:top-1/2 before:left-0 before:-translate-y-1/2 before:mt-4 '>
 							{skill}
 						</li>
 					))}

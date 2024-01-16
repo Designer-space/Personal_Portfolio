@@ -8,12 +8,12 @@ const RevealTextEffect = ({ text }) => {
 
 	const { scrollYProgress } = useScroll({
 		target: textReveal,
-		offset: ["start 85%", "end 80%"],
+		offset: ["start 90%", "end 85%"],
 	});
 
 	return (
 		<p
-			className='flex text-fluid-300 leading-none max-w-[950px] text-white flex-wrap'
+			className='flex text-fluid-300 tracking-wide leading-none max-w-[950px] text-white flex-wrap'
 			ref={textReveal}>
 			{splitText.map((word, i) => {
 				const start = i / splitText.length;

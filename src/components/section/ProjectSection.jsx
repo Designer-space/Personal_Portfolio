@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import project1 from "../../assets/project1.jpg";
 import project1_Desktop from "../../assets/project1_desktop.jpg";
 import project2 from "../../assets/project2.jpg";
@@ -38,19 +38,37 @@ const anim = {
 };
 
 const ProjectSection = () => {
+	const container = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: container,
+		offset: ["start end", "end 10%"],
+	});
+
+	const height = useTransform(scrollYProgress, [0, 1], [150, 0]);
+
 	return (
-		<div className='max-w-[1240px] mx-auto flex items-center justify-center'>
-			<div className='w-full flex flex-col gap-4 px-4 py-[15vw]'>
-				<p className='text-3xl py-8 text-center'>Featured Work</p>
-				{projects.map((project, i) => {
-					return (
-						<Project
-							key={i}
-							project={project}
-						/>
-					);
-				})}
+		<div
+			className=''
+			ref={container}>
+			<div className='max-w-[1240px] mx-auto flex items-center justify-center'>
+				<div className='w-full flex flex-col gap-4 px-4 pt-[15vw]'>
+					<p className='text-3xl py-8 text-center'>Featured Work</p>
+					{projects.map((project, i) => {
+						return (
+							<Project
+								key={i}
+								project={project}
+							/>
+						);
+					})}
+				</div>
 			</div>
+			<motion.div
+				transition={{ type: "spring", stiffness: 100 }}
+				style={{ height }}
+				className='bg-red-800 relative mt-[100px] transition-all duration-100 ease-[cubic-bezier(0.37,0,0.63,1)]'>
+				<div className='h-[1550%] w-[120%] -left-[10%] rounded-b-[50%] bg-[#111111] absolute z-[1] shadow-xl '></div>
+			</motion.div>
 		</div>
 	);
 };

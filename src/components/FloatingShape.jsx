@@ -1,10 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import Model from "./Model";
-import { useMotionValue, useSpring } from "framer-motion";
+import {
+	useMotionValue,
+	useSpring,
+	useScroll,
+	useTransform,
+} from "framer-motion";
+import Button from "./Button";
 
 const FloatingShape = () => {
+	const container = useRef(null);
+	const { scrollYProgress } = useScroll({
+		target: container,
+		offset: ["start end", "end end"],
+	});
+
+	const y = useTransform(scrollYProgress, [0, 1], [-500, 0]);
+
 	const mouse = {
 		x: useMotionValue(0),
 		y: useMotionValue(0),
@@ -33,13 +47,20 @@ const FloatingShape = () => {
 	}, []);
 
 	return (
-		<div className='flex h-screen'>
+		<div
+			ref={container}
+			style={{ y }}
+			className='flex h-screen bg-blue-300 relative'>
 			<Canvas
 				orthographic
 				camera={{ position: [0, 0, 200], zoom: 8 }}>
 				<Model mouse={smoothMouse} />
 				<Environment preset='studio' />
 			</Canvas>
+
+			<div className='absolute top-2/4 left-2/4 -translate-y-1/2	-translate-x-1/2	 '>
+				<Button text='Contact Me' />
+			</div>
 		</div>
 	);
 };
