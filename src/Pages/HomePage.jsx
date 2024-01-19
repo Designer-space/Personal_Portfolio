@@ -9,12 +9,14 @@ import FloatingShape from "../components/FloatingShape";
 const HomePage = () => {
 	return (
 		<>
-			<Header />
-			<HeroSection />
-			<Navbar />
-			<AboutSection />
-			<ProjectSection />
-			<FloatingShape />
+			<div className='overflow-hidden'>
+				<Header />
+				<HeroSection />
+				{/* <Navbar /> */}
+				<AboutSection />
+				<ProjectSection />
+				<FloatingShape />
+			</div>
 		</>
 	);
 };

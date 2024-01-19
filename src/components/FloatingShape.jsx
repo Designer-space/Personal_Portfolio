@@ -61,6 +61,36 @@ const FloatingShape = () => {
 			<div className='absolute top-2/4 left-2/4 -translate-y-1/2	-translate-x-1/2	 '>
 				<Button text='Contact Me' />
 			</div>
+
+			<div className='footer--wrapper'>
+				<div className='col'>
+					<p className=''>Vinay</p>
+				</div>
+				<div className='col'>
+					<div className='other-links'>
+						<a
+							href='#'
+							className='link'>
+							Github
+						</a>
+						/
+						<a
+							href='#'
+							className='link'>
+							Linkedin
+						</a>
+						/
+						<a
+							href='#'
+							className='link'>
+							Instagram
+						</a>
+					</div>
+				</div>
+				<p className='col'>
+					Designed and developed by me <br /> ©2023 – All Rights Reserved
+				</p>
+			</div>
 		</div>
 	);
 };
